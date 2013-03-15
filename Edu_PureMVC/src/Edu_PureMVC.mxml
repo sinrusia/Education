@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Copyright (C) 2004-2012 WeMB INC. 
+// All Rights Reserved.
+//
+//	@auther			: jaehag
+//	@description 	:
+//	
+/////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   minWidth="955" minHeight="600"
+			   initialize="initApp(event)">
+	<fx:Script>
+		<![CDATA[
+			import edu.framework.ApplicationFacade;
+			
+			import mx.events.FlexEvent;
+			
+			import org.puremvc.as3.interfaces.IFacade;
+			
+			private var facade:IFacade;
+			
+			protected function initApp(event:FlexEvent):void
+			{
+				facade = ApplicationFacade.getInstance();
+				facade.sendNotification("startup", this);
+			}
+			
+			protected function sendNoti(event:MouseEvent):void
+			{
+				
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:Button id="btn" label="send notification"
+			  click="sendNoti(event)"/>
+</s:Application>
